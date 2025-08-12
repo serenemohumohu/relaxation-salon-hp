@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>トータルビューティー リレア｜別府のトータルビューティーサロン</title>
+  <meta name="description" content="もみほぐし・ドライヘッドスパ・足つぼ・痩身・脱毛・オイルトリートメント・骨盤/猫背矯正。温かみとプロの技術で、あなたの“整う”をつくるサロン。">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="トータルビューティー リレア">
+  <meta property="og:description" content="温かみとプロフェッショナル。別府のトータルビューティーサロン。">
+  <!-- 実ファイルのOG画像。ページ内の「OG画像を保存」で作成→同じ階層に置く -->
+  <meta property="og:image" content="og-relair.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fonts（ゆるめ運用：外部CDN可） -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ------------------------------
+       基本トークン
+    ------------------------------ */
+    :root {
+      --bg: #fff9f6;          /* 温かみのある淡いベージュ */
+      --surface: #ffffff;
+      --text: #2b2b2b;
+      --muted: #6b7280;
+      --accent: #c4683f;      /* テラコッタ系 */
+      --accent-2: #0e7c86;    /* 落ち着いたティール */
+      --ring: rgba(196,104,63,.35);
+      --shadow: 0 10px 24px rgba(0,0,0,.08);
+      --radius: 14px;
+      --container: 1100px;
+    }
+    [data-theme="dark"] {
+      --bg: #151312;
+      --surface: #1b1918;
+      --text: #e7e3df;
+      --muted: #a3a3a3;
+      --accent: #d47a53;
+      --accent-2: #20a6b3;
+      --ring: rgba(212,122,83,.35);
+      --shadow: 0 12px 30px rgba(0,0,0,.4);
+    }
+
+    /* ------------------------------
+       Reset / Base
+    ------------------------------ */
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:"Noto Serif JP","YuMincho","Hiragino Mincho ProN","Hiragino Mincho Pro","MS PMincho",serif;
+      line-height:1.75;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+    img{max-width:100%;display:block}
+    a{color:var(--accent-2);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:var(--container);margin:auto;padding:0 20px}
+    .section{padding:72px 0}
+    .section h2{
+      font-size:clamp(22px,2.6vw,30px);
+      line-height:1.3;
+      margin:0 0 12px;
+      letter-spacing:.02em;
+    }
+    .section p.lead{color:var(--muted);margin:0 0 28px}
+
+    /* ------------------------------
+       ヘッダー
+    ------------------------------ */
+    .skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip:focus{left:12px;top:12px;width:auto;height:auto;padding:8px 12px;background:var(--surface);border-radius:10px;box-shadow:var(--shadow)}
+    header{
+      position:sticky;top:0;z-index:50;
+      background:color-mix(in oklab, var(--surface) 86%, transparent);
+      backdrop-filter:saturate(1.1) blur(10px);
+      border-bottom:1px solid color-mix(in oklab, var(--muted) 12%, transparent);
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 0}
+    .brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--text)}
+    .logo{
+      width:36px;height:36px;border-radius:10px;
+      background: conic-gradient(from 210deg at 50% 50%, var(--accent), var(--accent-2));
+      box-shadow:var(--shadow);
+    }
+    .brand .name{font-weight:700;letter-spacing:.08em}
+    .navlinks{display:flex;flex-wrap:wrap;gap:14px}
+    .navlinks a{padding:8px 12px;border-radius:999px}
+    .navlinks a:hover{background:color-mix(in oklab, var(--accent-2) 14%, transparent);text-decoration:none}
+    .actions{display:flex;align-items:center;gap:10px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      gap:8px;padding:10px 16px;border-radius:999px;border:1px solid transparent;
+      background:var(--accent);color:white;box-shadow:var(--shadow);
+      font-weight:700;letter-spacing:.02em
+    }
+    .btn:hover{filter:brightness(1.03);text-decoration:none}
+    .btn.outline{background:transparent;color:var(--accent);border-color:var(--accent)}
+    .icon{width:18px;height:18px;display:inline-block}
+    .theme-toggle{border:0;background:transparent;padding:8px;border-radius:10px;cursor:pointer}
+    .theme-toggle:hover{background:color-mix(in oklab, var(--muted) 12%, transparent)}
+
+    /* ------------------------------
+       ファーストビュー
+    ------------------------------ */
+    .hero{
+      position:relative;overflow:hidden
+    }
+    .hero .wrap{
+      display:grid;gap:30px;align-items:center;
+      grid-template-columns:1.1fr .9fr;
+    }
+    @media (max-width:900px){
+      .hero .wrap{grid-template-columns:1fr}
+    }
+    .hero-card{
+      background:linear-gradient(180deg, color-mix(in oklab, var(--surface) 95%, transparent), color-mix(in oklab, var(--surface) 80%, transparent));
+      border:1px solid color-mix(in oklab, var(--muted) 10%, transparent);
+      border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)
+    }
+    .kicker{color:var(--accent);font-weight:700;letter-spacing:.16em;font-size:13px;text-transform:uppercase}
+    .hero h1{margin:10px 0 12px;font-size:clamp(26px,4.2vw,42px);line-height:1.25;letter-spacing:.03em}
+    .hero p{color:var(--muted);margin:0 0 18px}
+    .cta-row{display:flex;flex-wrap:wrap;gap:10px}
+    .tagline{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+    .chip{
+      border:1px solid color-mix(in oklab, var(--muted) 14%, transparent);
+      background:color-mix(in oklab, var(--surface) 80%, transparent);
+      padding:6px 10px;border-radius:999px;font-size:13px;color:var(--muted)
+    }
+
+    .hero-visual{
+      aspect-ratio:4/3;border-radius:var(--radius);
+      background:
+        radial-gradient(60% 60% at 80% 40%, color-mix(in oklab, var(--accent) 18%, transparent), transparent),
+        radial-gradient(50% 50% at 20% 70%, color-mix(in oklab, var(--accent-2) 18%, transparent), transparent),
+        linear-gradient(135deg, color-mix(in oklab, var(--surface) 85%, transparent), color-mix(in oklab, var(--bg) 85%, transparent));
+      border:1px solid color-mix(in oklab, var(--muted) 10%, transparent);
+      box-shadow:var(--shadow);
+      position:relative;overflow:hidden;
+    }
+    .hero-visual::after{
+      content:"リレア"; position:absolute; inset:auto 16px 12px 16px;
+      font-size:clamp(18px,3vw,28px); color:color-mix(in oklab, var(--text) 70%, transparent);
+      letter-spacing:.18em
+    }
+
+    /* ------------------------------
+       カード / グリッド
+    ------------------------------ */
+    .grid{display:grid;gap:18px}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    @media (max-width:900px){.grid.cols-3,.grid.cols-2{grid-template-columns:1fr}}
+
+    .card{
+      background:var(--surface);border-radius:var(--radius);
+      border:1px solid color-mix(in oklab, var(--muted) 10%, transparent);
+      box-shadow:var(--shadow);padding:20px
+    }
+    .card h3{margin:0 0 6px;font-size:20px}
+    .price{font-weight:700;color:var(--accent)}
+    .note{color:var(--muted);font-size:13px}
+
+    /* ------------------------------
+       テーブル（料金）
+    ------------------------------ */
+    .table{width:100%;border-collapse:collapse;font-size:15px}
+    .table th,.table td{padding:10px;border-bottom:1px solid color-mix(in oklab, var(--muted) 12%, transparent)}
+    .table th{text-align:left;color:var(--muted);font-weight:600}
+    .table td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+
+    /* ------------------------------
+       ギャラリー（実績・事例）
+    ------------------------------ */
+    .ba{
+      background:
+        repeating-linear-gradient(45deg, color-mix(in oklab, var(--muted) 12%, transparent) 0 10px, transparent 10px 20px),
+        color-mix(in oklab, var(--surface) 90%, transparent);
+      border:1px dashed color-mix(in oklab, var(--muted) 22%, transparent);
+      border-radius:12px;aspect-ratio:4/3;display:grid;place-items:center;color:var(--muted)
+    }
+
+    /* ------------------------------
+       声（お客様の声）
+    ------------------------------ */
+    .voice{display:grid;gap:16px}
+    .voice blockquote{
+      margin:0;padding:16px 18px;background:color-mix(in oklab, var(--surface) 90%, transparent);
+      border-left:4px solid var(--accent);border-radius:10px
+    }
+    .who{color:var(--muted);font-size:13px;margin-top:6px}
+
+    /* ------------------------------
+       フッター / アクセス
+    ------------------------------ */
+    .footer{
+      padding:28px 0;color:var(--muted);border-top:1px solid color-mix(in oklab, var(--muted) 12%, transparent)
+    }
+    .map-iframe{
+      width:100%;aspect-ratio:16/9;border:0;border-radius:var(--radius);
+      box-shadow:var(--shadow);filter:saturate(1.1) contrast(1.02)
+    }
+
+    /* バッジ */
+    .badge{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:color-mix(in oklab, var(--accent) 16%, transparent);color:var(--text);font-size:13px}
+
+    /* 小さなユーティリティ */
+    .mt-8{margin-top:8px}.mt-16{margin-top:16px}.mt-24{margin-top:24px}.mt-32{margin-top:32px}
+    .center{text-align:center}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">本文へスキップ</a>
+
+  <header>
+    <div class="container nav" role="navigation" aria-label="メインナビ">
+      <a class="brand" href="#">
+        <span class="logo" aria-hidden="true"></span>
+        <span class="name">トータルビューティー リレア</span>
+      </a>
+      <nav class="navlinks" aria-label="セクションリンク">
+        <a href="#menu">施術・料金</a>
+        <a href="#works">実績</a>
+        <a href="#voices">お客様の声</a>
+        <a href="#blog">美容コラム</a>
+        <a href="#access">店舗情報</a>
+        <a href="#sns">SNS</a>
+      </nav>
+      <div class="actions">
+        <button class="theme-toggle" id="themeBtn" aria-label="ダークモード切替">🌓</button>
+        <!-- TODO: 公式LINE/電話に差し替え -->
+        <a class="btn outline" href="https://lin.ee/yourline" target="_blank" rel="noopener" aria-label="LINEで予約">LINE予約</a>
+        <a class="btn" href="tel:000-0000-0000" aria-label="電話で予約">電話する</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="section hero">
+      <div class="container wrap">
+        <div class="hero-card">
+          <div class="kicker">TOTAL BEAUTY RELAIR</div>
+          <h1>温かみ × プロフェッショナル。<br>あなたの“整う”を、ここから。</h1>
+          <p>もみほぐし・ドライヘッドスパ・足つぼ・痩身・脱毛・オイルトリートメント・骨盤/猫背矯正。リレアは、あなたの体と気持ちが軽くなる「通いやすい品質」を大切にしています。<span class="badge mt-8">安心の都度払い制</span></p>
+          <div class="cta-row mt-16">
+            <a class="btn" href="https://lin.ee/yourline" target="_blank" rel="noopener">LINEで予約</a>
+            <a class="btn outline" href="#menu">施術メニューを見る</a>
+          </div>
+          <div class="tagline">
+            <span class="chip">個室対応</span>
+            <span class="chip">女性スタッフ在籍</span>
+            <span class="chip">はじめて歓迎</span>
+          </div>
+        </div>
+        <div class="hero-visual" role="img" aria-label="やわらかな光のビジュアル背景"></div>
+      </div>
+    </section>
+
+    <!-- 施術紹介＆料金 -->
+    <section id="menu" class="section">
+      <div class="container">
+        <h2>施術紹介 &amp; 料金</h2>
+        <p class="lead">気になる部位・悩みから選べます。価格はすべて税込・都度払い。</p>
+
+        <div class="grid cols-3 mt-24">
+          <article class="card">
+            <h3>もみほぐし</h3>
+            <table class="table" aria-label="もみほぐし料金">
+              <tr><th>60分</th><td class="price">¥4,000</td></tr>
+              <tr><th>90分</th><td class="price">¥6,000</td></tr>
+            </table>
+            <p class="note mt-8">全身のコリ・だるさに。お好みの圧で調整。<!-- TODO: 実価格に変更 --></p>
+          </article>
+
+          <article class="card">
+            <h3>ドライヘッドスパ</h3>
+            <table class="table">
+              <tr><th>45分</th><td class="price">¥3,800</td></tr>
+              <tr><th>60分</th><td class="price">¥4,800</td></tr>
+            </table>
+            <p class="note mt-8">眼精疲労・睡眠の質向上に。<!-- TODO: 実価格に変更 --></p>
+          </article>
+
+          <article class="card">
+            <h3>足つぼ</h3>
+            <table class="table">
+              <tr><th>30分</th><td class="price">¥2,800</td></tr>
+              <tr><th>60分</th><td class="price">¥4,800</td></tr>
+            </table>
+            <p class="note mt-8">むくみ・冷え対策に。<!-- TODO --></p>
+          </article>
+
+          <article class="card">
+            <h3>痩身（ボディ）</h3>
+            <table class="table">
+              <tr><th>上半身 or 下半身 60分</th><td class="price">¥7,800</td></tr>
+              <tr><th>全身 90分</th><td class="price">¥10,800</td></tr>
+            </table>
+            <p class="note mt-8">マシン＋ハンドで代謝UP。<!-- TODO --></p>
+          </article>
+
+          <article class="card">
+            <h3>脱毛（メンズ/レディース）</h3>
+            <table class="table">
+              <tr><th>ヒゲ（初回）</th><td class="price">¥2,980</td></tr>
+              <tr><th>ワキ（何度でも）</th><td class="price">¥1,980</td></tr>
+            </table>
+            <p class="note mt-8">肌にやさしい方式を採用。デザイン脱毛も可。<!-- TODO --></p>
+          </article>
+
+          <article class="card">
+            <h3>オイルトリートメント</h3>
+            <table class="table">
+              <tr><th>60分</th><td class="price">¥5,800</td></tr>
+              <tr><th>90分</th><td class="price">¥7,800</td></tr>
+            </table>
+            <p class="note mt-8">自律神経の乱れ・ストレスケアに。<!-- TODO --></p>
+          </article>
+
+          <article class="card">
+            <h3>骨盤矯正</h3>
+            <table class="table">
+              <tr><th>40分</th><td class="price">¥3,800</td></tr>
+              <tr><th>60分</th><td class="price">¥5,000</td></tr>
+            </table>
+            <p class="note mt-8">姿勢・腰の違和感に。産後ケアも。<!-- TODO --></p>
+          </article>
+
+          <article class="card">
+            <h3>猫背矯正</h3>
+            <table class="table">
+              <tr><th>40分</th><td class="price">¥3,800</td></tr>
+              <tr><th>60分</th><td class="price">¥5,000</td></tr>
+            </table>
+            <p class="note mt-8">スマホ/PC疲れの肩首に。<!-- TODO --></p>
+          </article>
+
+          <article class="card">
+            <h3>セット/オプション</h3>
+            <table class="table">
+              <tr><th>ヘッド + もみほぐし 90分</th><td class="price">¥6,800</td></tr>
+              <tr><th>足つぼ + もみほぐし 90分</th><td class="price">¥6,600</td></tr>
+            </table>
+            <p class="note mt-8">相性の良い組み合わせでお得に。<!-- TODO --></p>
+          </article>
+        </div>
+
+        <div class="center mt-24">
+          <a class="btn" href="https://lin.ee/yourline" target="_blank" rel="noopener">LINEで予約</a>
+          <a class="btn outline" href="tel:000-0000-0000">電話する</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 実績・事例 -->
+    <section id="works" class="section">
+      <div class="container">
+        <h2>実績・事例</h2>
+        <p class="lead">お客様のBefore/After（掲載許可済のみ）。※画像はダミーです。差し替えてご利用ください。</p>
+        <div class="grid cols-3 mt-24">
+          <figure class="card">
+            <div class="ba">Before → After（肩の可動域UP）</div>
+            <figcaption class="note mt-8">もみほぐし60分×3回</figcaption>
+          </figure>
+          <figure class="card">
+            <div class="ba">Before → After（フェイスライン）</div>
+            <figcaption class="note mt-8">ドライヘッドスパ＋小顔ケア</figcaption>
+          </figure>
+          <figure class="card">
+            <div class="ba">Before → After（ヒゲ）</div>
+            <figcaption class="note mt-8">メンズ脱毛（デザイン）</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- お客様の声 -->
+    <section id="voices" class="section">
+      <div class="container">
+        <h2>お客様の声</h2>
+        <div class="voice mt-16">
+          <div class="card">
+            <blockquote>
+              デスクワークでガチガチだった首肩が軽く。寝つきも良くなりました。都度払いで気楽に通えるのがありがたいです。
+            </blockquote>
+            <div class="who">30代 男性 / もみほぐし・ヘッドスパ</div>
+          </div>
+          <div class="card">
+            <blockquote>
+              ヒゲ脱毛は不安でしたが、痛みの説明や照射テストが丁寧で安心できました。朝の時短になって最高。
+            </blockquote>
+            <div class="who">20代 男性 / 脱毛</div>
+          </div>
+          <div class="card">
+            <blockquote>
+              骨盤矯正で腰の重さが楽に。自宅でのケア方法も教えてくれて助かります。
+            </blockquote>
+            <div class="who">40代 女性 / 骨盤矯正</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 美容コラム -->
+    <section id="blog" class="section">
+      <div class="container">
+        <h2>美容コラム</h2>
+        <p class="lead">セルフケア・通い方のコツをやさしく解説。</p>
+        <div class="grid cols-3 mt-24">
+          <article class="card">
+            <h3>「やりすぎない」デザイン脱毛のすすめ</h3>
+            <p class="note">将来を見据えた残し方・整え方。</p>
+            <a class="btn outline mt-16" href="#" aria-disabled="true">記事を読む（準備中）</a>
+          </article>
+          <article class="card">
+            <h3>肩首が重い日に試す3分セルフケア</h3>
+            <p class="note">呼吸＋軽いストレッチでリセット。</p>
+            <a class="btn outline mt-16" href="#" aria-disabled="true">記事を読む（準備中）</a>
+          </article>
+          <article class="card">
+            <h3>「都度払い」で賢く通うポイント</h3>
+            <p class="note">無理のない頻度と費用の考え方。</p>
+            <a class="btn outline mt-16" href="#" aria-disabled="true">記事を読む（準備中）</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 店舗情報＆アクセス -->
+    <section id="access" class="section">
+      <div class="container">
+        <h2>店舗情報 &amp; アクセス</h2>
+        <div class="grid cols-2 mt-16">
+          <div class="card">
+            <h3>トータルビューティー リレア</h3>
+            <p class="mt-8"><strong>住所：</strong><!-- TODO: 正式住所に置換 -->大分県別府市◯◯◯</p>
+            <p><strong>営業時間：</strong><!-- TODO: 営業時間に置換 -->10:00–21:00（最終受付20:00）</p>
+            <p><strong>定休日：</strong><!-- TODO: 定休日に置換 -->不定休</p>
+            <p><strong>電話：</strong><a href="tel:000-0000-0000">000-0000-0000</a></p>
+            <p class="mt-16">
+              <a class="btn outline" href="https://lin.ee/yourline" target="_blank" rel="noopener">公式LINE</a>
+              <a class="btn mt-8" href="tel:000-0000-0000">電話する</a>
+            </p>
+            <p class="note mt-16">※駐車場あり／個室あり</p>
+          </div>
+          <div class="card">
+            <!-- TODO: 住所確定後に埋め込みURL差し替え -->
+            <iframe
+              class="map-iframe"
+              title="Googleマップ"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=%E5%A4%A7%E5%88%86%E7%9C%8C%E5%88%A5%E5%BA%9C%E5%B8%82&output=embed">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SNS -->
+    <section id="sns" class="section">
+      <div class="container center">
+        <h2>SNS</h2>
+        <p class="lead">最新情報はSNSで発信中。</p>
+        <div class="mt-16" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <!-- TODO: 正式URLに差し替え -->
+          <a class="btn outline" href="https://www.instagram.com/your_account" target="_blank" rel="noopener" aria-label="Instagram">
+            <!-- Instagram アイコン -->
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5m0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5M18 6.3a1 1 0 1 1-1 1 1 1 0 0 1 1-1"/></svg>
+            Instagram
+          </a>
+          <a class="btn outline" href="https://x.com/your_account" target="_blank" rel="noopener" aria-label="X（旧Twitter）">
+            <!-- X アイコン -->
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 3h3.5l5.1 7.3L16.6 3H21l-7 9.6L21 21h-3.5l-5.3-7.6L7.4 21H3l7.5-10.2z"/></svg>
+            X
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- OG画像 生成（簡易） -->
+    <section class="section">
+      <div class="container center">
+        <p class="note">OG画像が未設置の場合は、下のボタンで簡易OG画像を作成して保存してください（ファイル名は <code>og-relair.png</code> ）。</p>
+        <button class="btn outline" id="ogBtn">OG画像を保存</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container" style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between">
+      <div>© <span id="year"></span> トータルビューティー リレア</div>
+      <div class="note">都度払い／女性スタッフ／個室有</div>
+    </div>
+  </footer>
+
+  <!-- 構造化データ（要差し替え） -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HealthAndBeautyBusiness",
+    "name": "トータルビューティー リレア",
+    "url": "https://example.com", 
+    "telephone": "000-0000-0000",
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "大分県",
+      "addressLocality": "別府市",
+      "streetAddress": "◯◯◯",
+      "postalCode": "000-0000"
+    },
+    "sameAs": [
+      "https://www.instagram.com/your_account",
+      "https://x.com/your_account",
+      "https://lin.ee/yourline"
+    ]
+  }
+  </script>
+
+  <!-- Google Analytics / gtag（ゆるめ運用） -->
+  <!-- TODO: GA4の計測IDに置換（例：G-123ABC456D）。不要ならこのブロックごと削除 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments)}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <script>
+    // 年号
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // テーマ切替（ローカル保存）
+    const root = document.documentElement;
+    const themeBtn = document.getElementById('themeBtn');
+    const saved = localStorage.getItem('theme');
+    if(saved){ root.setAttribute('data-theme', saved); }
+    else if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
+      root.setAttribute('data-theme','dark');
+    }
+    themeBtn.addEventListener('click', ()=>{
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+
+    // 簡易OG画像生成：1200x630 PNGを書き出し
+    document.getElementById('ogBtn').addEventListener('click', ()=>{
+      const W=1200, H=630;
+      const c = document.createElement('canvas');
+      c.width = W; c.height = H;
+      const ctx = c.getContext('2d');
+
+      // 背景（ベージュ→ティールの柔らかなグラデ）
+      const g = ctx.createLinearGradient(0,0,W,H);
+      g.addColorStop(0,'#fff3ea');
+      g.addColorStop(1,'#e7f6f7');
+      ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
+
+      // 装飾
+      ctx.globalAlpha = .25;
+      ctx.fillStyle = '#c4683f';
+      ctx.beginPath(); ctx.arc(W*0.85,H*0.25,160,0,Math.PI*2); ctx.fill();
+      ctx.fillStyle = '#0e7c86';
+      ctx.beginPath(); ctx.arc(W*0.2,H*0.8,220,0,Math.PI*2); ctx.fill();
+      ctx.globalAlpha = 1;
+
+      // タイトル
+      ctx.fillStyle = '#2b2b2b';
+      ctx.font = '700 80px serif';
+      ctx.fillText('トータルビューティー リレア', 80, 330);
+
+      ctx.font = '400 34px serif';
+      ctx.fillStyle = '#444';
+      ctx.fillText('温かみ × プロフェッショナル', 80, 390);
+
+      // 保存
+      const url = c.toDataURL('image/png');
+      const a = document.createElement('a');
+      a.href = url; a.download = 'og-relair.png';
+      document.body.appendChild(a); a.click(); a.remove();
+      alert('og-relair.png を保存しました。ファイルをこのHTMLと同じフォルダに置いてください。');
+    });
+  </script>
+</body>
+</html>
